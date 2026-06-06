@@ -1,0 +1,53 @@
+product_id,product_name,category,brand,gender,base_price
+1,Sneakersy 01,sneakersy,Runnero,unisex,374.79
+2,Buty Sportowe 02,buty sportowe,Elegante,women,319.47
+3,Buty Eleganckie 03,buty eleganckie,ComfyWalk,unisex,552.69
+4,Botki 04,botki,ComfyWalk,men,260.75
+5,Kozaki 05,kozaki,UrbanFoot,men,463.49
+6,Sandały 06,sandały,ModaBut,men,251.64
+7,Klapki 07,klapki,StepWay,women,95.0
+8,Sneakersy 08,sneakersy,Elegante,men,385.53
+9,Buty Sportowe 09,buty sportowe,Runnero,kids,331.62
+10,Buty Eleganckie 10,buty eleganckie,NordShoe,unisex,527.94
+11,Botki 11,botki,NordShoe,women,276.71
+12,Kozaki 12,kozaki,Elegante,men,385.54
+13,Sandały 13,sandały,NordShoe,women,239.16
+14,Klapki 14,klapki,ModaBut,men,110.75
+15,Sneakersy 15,sneakersy,Elegante,men,257.89
+16,Buty Sportowe 16,buty sportowe,StepWay,men,225.38
+17,Buty Eleganckie 17,buty eleganckie,UrbanFoot,men,391.15
+18,Botki 18,botki,ComfyWalk,unisex,304.97
+19,Kozaki 19,kozaki,ComfyWalk,women,619.72
+20,Sandały 20,sandały,NordShoe,women,229.2
+21,Klapki 21,klapki,ComfyWalk,unisex,91.99
+22,Sneakersy 22,sneakersy,StepWay,men,352.97
+23,Buty Sportowe 23,buty sportowe,Elegante,men,336.15
+24,Buty Eleganckie 24,buty eleganckie,Elegante,women,301.94
+25,Botki 25,botki,Runnero,men,390.42
+26,Kozaki 26,kozaki,Elegante,men,605.4
+27,Sandały 27,sandały,StepWay,women,208.57
+28,Klapki 28,klapki,Elegante,men,73.39
+29,Sneakersy 29,sneakersy,UrbanFoot,unisex,262.92
+30,Buty Sportowe 30,buty sportowe,NordShoe,women,226.79
+31,Buty Eleganckie 31,buty eleganckie,ModaBut,men,344.42
+32,Botki 32,botki,NordShoe,unisex,363.69
+33,Kozaki 33,kozaki,NordShoe,unisex,569.15
+34,Sandały 34,sandały,NordShoe,women,146.72
+35,Klapki 35,klapki,ComfyWalk,men,79.91
+36,Sneakersy 36,sneakersy,ComfyWalk,men,252.25
+37,Buty Sportowe 37,buty sportowe,Elegante,men,210.46
+38,Buty Eleganckie 38,buty eleganckie,Runnero,women,374.31
+39,Botki 39,botki,Runnero,women,381.27
+40,Kozaki 40,kozaki,NordShoe,kids,372.48
+41,Sandały 41,sandały,Elegante,women,265.37
+42,Klapki 42,klapki,Runnero,unisex,176.61
+43,Sneakersy 43,sneakersy,ComfyWalk,women,363.38
+44,Buty Sportowe 44,buty sportowe,Elegante,unisex,199.28
+45,Buty Eleganckie 45,buty eleganckie,Runnero,women,396.73
+46,Botki 46,botki,UrbanFoot,women,369.01
+47,Kozaki 47,kozaki,StepWay,men,638.38
+48,Sandały 48,sandały,ComfyWalk,men,189.13
+49,Klapki 49,klapki,StepWay,women,134.25
+50,Sneakersy 50,sneakersy,Runnero,women,303.16
+51,Buty Sportowe 51,buty sportowe,UrbanFoot,women,278.8
+52,Buty Eleganckie 52,buty eleganckie,NordShoe,men,291.02

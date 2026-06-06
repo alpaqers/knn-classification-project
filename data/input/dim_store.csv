@@ -1,0 +1,9 @@
+store_id,store_name,city,region,location_type,store_size,opening_date,employee_count
+1,Warszawa Centrum,Warszawa,mazowieckie,high_street,large,2016-03-12,28
+2,Kraków Galeria,Kraków,małopolskie,shopping_mall,large,2017-05-20,24
+3,Wrocław Rynek,Wrocław,dolnośląskie,high_street,medium,2018-04-18,18
+4,Gdańsk Morena,Gdańsk,pomorskie,shopping_mall,medium,2019-09-02,17
+5,Poznań Plaza,Poznań,wielkopolskie,shopping_mall,medium,2020-02-10,16
+6,Łódź Manufaktura,Łódź,łódzkie,shopping_mall,large,2017-11-15,22
+7,Katowice Silesia,Katowice,śląskie,retail_park,medium,2021-06-01,15
+8,Lublin Felicity,Lublin,lubelskie,shopping_mall,small,2022-08-22,11
