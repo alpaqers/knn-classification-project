@@ -34,7 +34,7 @@ dim_customer dim_date
 
 ## 7. ETL i agregacja
 
-Pipeline tworzy tabele SQLite, ładuje dane i agreguje je do tabeli `store_monthly_performance`. Jednostką klasyfikacji jest jeden sklep w jednym miesiącu. Uzyskano 96 rekordów agregacji.
+Pipeline tworzy tabele SQLite, ładuje dane i agreguje je do tabeli `store_monthly_performance`. Jednostką klasyfikacji jest jeden sklep w jednym miesiącu. Uzyskano 232 rekordów agregacji.
 
 ## 8. Performance score
 
@@ -46,7 +46,7 @@ Klasy `low_efficiency`, `medium_efficiency` i `high_efficiency` są wyznaczane w
 
 ## 10. Model kNN
 
-Użyto `KNeighborsClassifier`. Cechy zostały przeskalowane przez `StandardScaler`, dane podzielono na zbiór treningowy i testowy, a wartości k porównano dla 3, 5, 7 i 9. Najlepsze k to 9.
+Użyto `KNeighborsClassifier`. Cechy zostały przeskalowane przez `StandardScaler`, dane podzielono na zbiór treningowy i testowy, a wartości k porównano dla 3, 5, 7 i 9. Najlepsze k to 7.
 
 ## 11. Technologie
 
@@ -54,15 +54,15 @@ Projekt wykorzystuje Python, SQLite, pandas, numpy, scikit-learn, matplotlib, py
 
 ## 12. Metryki i wyniki
 
-Accuracy: 0.7500
+Accuracy: 0.8276
 
-Precision macro: 0.7500
+Precision macro: 0.8382
 
-Recall macro: 0.7500
+Recall macro: 0.8272
 
-F1-score macro: 0.7500
+F1-score macro: 0.8261
 
-Rozkład klas: {'high_efficiency': 33, 'low_efficiency': 32, 'medium_efficiency': 31}
+Rozkład klas: {'high_efficiency': 79, 'low_efficiency': 77, 'medium_efficiency': 76}
 
 ## 13. Interpretacja biznesowa
 

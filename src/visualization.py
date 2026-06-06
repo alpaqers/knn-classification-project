@@ -18,7 +18,8 @@ def generate_plots(performance: pd.DataFrame, metrics: dict, plots_dir: Path) ->
         _plot_revenue_by_class(performance, plots_dir),
         _plot_k_scores(metrics, plots_dir),
         _plot_confusion_matrix(metrics, plots_dir),
-        _plot_pca(performance, plots_dir),
+        _plot_pca_classes(performance, plots_dir),
+        _plot_pca_predictions(performance, metrics, plots_dir),
     ]
     return paths
 
@@ -53,7 +54,7 @@ def _plot_k_scores(metrics: dict, plots_dir: Path) -> Path:
     path = plots_dir / "knn_k_comparison.png"
     results = pd.DataFrame(metrics["k_results"])
     plt.plot(results["k"], results["accuracy"], marker="o", label="accuracy")
-    plt.plot(results["k"], results["f1_score"], marker="o", label="F1 macro")
+    plt.plot(results["k"], results["f1_macro"], marker="o", label="F1 macro")
     plt.title("Porównanie jakości modelu dla różnych k")
     plt.xlabel("k")
     plt.ylabel("Wynik")
@@ -87,12 +88,9 @@ def _plot_confusion_matrix(metrics: dict, plots_dir: Path) -> Path:
     return path
 
 
-def _plot_pca(frame: pd.DataFrame, plots_dir: Path) -> Path:
-    path = plots_dir / "pca_classes.png"
-    scaled = StandardScaler().fit_transform(frame[FEATURE_COLUMNS])
-    points = PCA(n_components=2, random_state=42).fit_transform(scaled)
-    pca_frame = pd.DataFrame(points, columns=["PC1", "PC2"])
-    pca_frame["performance_class"] = frame["performance_class"].to_numpy()
+def _plot_pca_classes(frame: pd.DataFrame, plots_dir: Path) -> Path:
+    path = plots_dir / "knn_pca_classification_space.png"
+    pca_frame = _pca_frame(frame)
     colors = {"low_efficiency": "#c84c4c", "medium_efficiency": "#d7a843", "high_efficiency": "#3f8f6b"}
     for label, group in pca_frame.groupby("performance_class"):
         plt.scatter(group["PC1"], group["PC2"], label=label, alpha=0.8, color=colors[label])
@@ -104,3 +102,32 @@ def _plot_pca(frame: pd.DataFrame, plots_dir: Path) -> Path:
     plt.savefig(path)
     plt.close()
     return path
+
+
+def _plot_pca_predictions(frame: pd.DataFrame, metrics: dict, plots_dir: Path) -> Path:
+    path = plots_dir / "knn_pca_predictions.png"
+    pca_frame = _pca_frame(frame)
+    pca_frame["predicted_class"] = metrics.get("all_predictions", frame["performance_class"].tolist())
+    pca_frame["is_correct"] = pca_frame["performance_class"] == pca_frame["predicted_class"]
+    colors = {"low_efficiency": "#c84c4c", "medium_efficiency": "#d7a843", "high_efficiency": "#3f8f6b"}
+    for label, group in pca_frame.groupby("predicted_class"):
+        plt.scatter(group["PC1"], group["PC2"], label=label, alpha=0.75, color=colors[label])
+    errors = pca_frame[~pca_frame["is_correct"]]
+    if not errors.empty:
+        plt.scatter(errors["PC1"], errors["PC2"], facecolors="none", edgecolors="black", linewidths=1.5, label="błędne")
+    plt.title("Wizualizacja predykcji kNN po PCA")
+    plt.xlabel("PC1")
+    plt.ylabel("PC2")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(path)
+    plt.close()
+    return path
+
+
+def _pca_frame(frame: pd.DataFrame) -> pd.DataFrame:
+    scaled = StandardScaler().fit_transform(frame[FEATURE_COLUMNS])
+    points = PCA(n_components=2, random_state=42).fit_transform(scaled)
+    pca_frame = pd.DataFrame(points, columns=["PC1", "PC2"])
+    pca_frame["performance_class"] = frame["performance_class"].to_numpy()
+    return pca_frame

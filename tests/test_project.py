@@ -37,10 +37,38 @@ def test_generator_creates_all_required_csv_files(generated_dir: Path) -> None:
     assert {path.stem for path in generated_dir.glob("*.csv")} == set(REQUIRED_TABLES)
 
 
-def test_dim_date_contains_12_months_of_2025(generated_dir: Path) -> None:
+def test_generator_dim_date_contains_12_months_by_default(generated_dir: Path) -> None:
     dim_date = pd.read_csv(generated_dir / "dim_date.csv")
     assert set(dim_date["month"]) == set(range(1, 13))
     assert set(dim_date["year"]) == {2025}
+    assert dim_date["date_id"].iloc[0] == 20250101
+
+
+def test_validator_accepts_non_2025_year(tmp_path: Path) -> None:
+    input_dir = tmp_path / "input_2024"
+    generate_sample_data(input_dir, year=2024)
+    data = validate_input_directory(input_dir)
+    assert set(data["dim_date"]["year"]) == {2024}
+
+
+def test_import_and_aggregation_accept_non_2025_year(tmp_path: Path) -> None:
+    input_dir = tmp_path / "input_2024"
+    database_path = tmp_path / "dw_2024.sqlite"
+    generate_sample_data(input_dir, year=2024)
+    import_csv_to_sqlite(input_dir, database_path, replace=True)
+    with database.connect(database_path) as connection:
+        performance = build_store_monthly_performance(connection)
+    assert set(performance["year"]) == {2024}
+    assert not performance.empty
+
+
+def test_validator_detects_date_year_mismatch(generated_dir: Path) -> None:
+    path = generated_dir / "dim_date.csv"
+    frame = pd.read_csv(path)
+    frame.loc[0, "year"] = 2030
+    frame.to_csv(path, index=False)
+    with pytest.raises(ValidationError, match="year must match"):
+        validate_input_directory(generated_dir)
 
 
 def test_validator_detects_missing_required_file(generated_dir: Path) -> None:

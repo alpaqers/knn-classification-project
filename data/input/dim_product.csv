@@ -1,53 +1,57 @@
 product_id,product_name,category,brand,gender,base_price
-1,Sneakersy 01,sneakersy,Runnero,unisex,374.79
-2,Buty Sportowe 02,buty sportowe,Elegante,women,319.47
-3,Buty Eleganckie 03,buty eleganckie,ComfyWalk,unisex,552.69
-4,Botki 04,botki,ComfyWalk,men,260.75
-5,Kozaki 05,kozaki,UrbanFoot,men,463.49
-6,Sandały 06,sandały,ModaBut,men,251.64
-7,Klapki 07,klapki,StepWay,women,95.0
-8,Sneakersy 08,sneakersy,Elegante,men,385.53
-9,Buty Sportowe 09,buty sportowe,Runnero,kids,331.62
-10,Buty Eleganckie 10,buty eleganckie,NordShoe,unisex,527.94
-11,Botki 11,botki,NordShoe,women,276.71
-12,Kozaki 12,kozaki,Elegante,men,385.54
-13,Sandały 13,sandały,NordShoe,women,239.16
-14,Klapki 14,klapki,ModaBut,men,110.75
-15,Sneakersy 15,sneakersy,Elegante,men,257.89
-16,Buty Sportowe 16,buty sportowe,StepWay,men,225.38
-17,Buty Eleganckie 17,buty eleganckie,UrbanFoot,men,391.15
-18,Botki 18,botki,ComfyWalk,unisex,304.97
-19,Kozaki 19,kozaki,ComfyWalk,women,619.72
-20,Sandały 20,sandały,NordShoe,women,229.2
-21,Klapki 21,klapki,ComfyWalk,unisex,91.99
-22,Sneakersy 22,sneakersy,StepWay,men,352.97
-23,Buty Sportowe 23,buty sportowe,Elegante,men,336.15
-24,Buty Eleganckie 24,buty eleganckie,Elegante,women,301.94
-25,Botki 25,botki,Runnero,men,390.42
-26,Kozaki 26,kozaki,Elegante,men,605.4
-27,Sandały 27,sandały,StepWay,women,208.57
-28,Klapki 28,klapki,Elegante,men,73.39
-29,Sneakersy 29,sneakersy,UrbanFoot,unisex,262.92
-30,Buty Sportowe 30,buty sportowe,NordShoe,women,226.79
-31,Buty Eleganckie 31,buty eleganckie,ModaBut,men,344.42
-32,Botki 32,botki,NordShoe,unisex,363.69
-33,Kozaki 33,kozaki,NordShoe,unisex,569.15
-34,Sandały 34,sandały,NordShoe,women,146.72
-35,Klapki 35,klapki,ComfyWalk,men,79.91
-36,Sneakersy 36,sneakersy,ComfyWalk,men,252.25
-37,Buty Sportowe 37,buty sportowe,Elegante,men,210.46
-38,Buty Eleganckie 38,buty eleganckie,Runnero,women,374.31
-39,Botki 39,botki,Runnero,women,381.27
-40,Kozaki 40,kozaki,NordShoe,kids,372.48
-41,Sandały 41,sandały,Elegante,women,265.37
-42,Klapki 42,klapki,Runnero,unisex,176.61
-43,Sneakersy 43,sneakersy,ComfyWalk,women,363.38
-44,Buty Sportowe 44,buty sportowe,Elegante,unisex,199.28
-45,Buty Eleganckie 45,buty eleganckie,Runnero,women,396.73
-46,Botki 46,botki,UrbanFoot,women,369.01
-47,Kozaki 47,kozaki,StepWay,men,638.38
-48,Sandały 48,sandały,ComfyWalk,men,189.13
-49,Klapki 49,klapki,StepWay,women,134.25
-50,Sneakersy 50,sneakersy,Runnero,women,303.16
-51,Buty Sportowe 51,buty sportowe,UrbanFoot,women,278.8
-52,Buty Eleganckie 52,buty eleganckie,NordShoe,men,291.02
+1,Fila City Run,sneakersy,Fila,women,246.75
+2,New Balance Street Flex,sneakersy,New Balance,men,308.2
+3,4F Urban Walk,sneakersy,4F,women,448.78
+4,Vans Classic Court,sneakersy,Vans,women,422.05
+5,Nike Metro Light,sneakersy,Nike,women,268.05
+6,Reebok Air Street,sneakersy,Reebok,women,412.99
+7,4F Daily Move,sneakersy,4F,unisex,307.34
+8,Converse Cloud Step,sneakersy,Converse,kids,489.92
+9,Nike Active Pro,buty sportowe,Nike,men,408.44
+10,Ecco Run Max,buty sportowe,Ecco,kids,245.64
+11,Ecco Fit Motion,buty sportowe,Ecco,women,226.82
+12,Adidas Training Air,buty sportowe,Adidas,kids,453.25
+13,Converse Speed Trail,buty sportowe,Converse,kids,441.14
+14,4F Gym Flex,buty sportowe,4F,unisex,359.87
+15,Lasocki Sprint Lite,buty sportowe,Lasocki,women,364.61
+16,Fila Power Run,buty sportowe,Fila,kids,372.21
+17,4F Oxford Line,buty eleganckie,4F,women,279.16
+18,Reebok Derby Classic,buty eleganckie,Reebok,kids,692.5
+19,Reebok Formal Step,buty eleganckie,Reebok,women,426.26
+20,Ryłko Business Walk,buty eleganckie,Ryłko,kids,330.57
+21,Ecco Premium Leather,buty eleganckie,Ecco,men,553.88
+22,4F City Elegant,buty eleganckie,4F,women,527.02
+23,Puma Office Comfort,buty eleganckie,Puma,men,330.9
+24,Lasocki Smart Brown,buty eleganckie,Lasocki,kids,694.39
+25,Fila Autumn Chic,botki,Fila,men,448.08
+26,Nike Leather Soft,botki,Nike,men,491.98
+27,Ecco Urban Boot,botki,Ecco,unisex,314.68
+28,Reebok Classic Zip,botki,Reebok,kids,297.04
+29,Ryłko Daily Boot,botki,Ryłko,unisex,512.1
+30,Fila Chelsea Walk,botki,Fila,unisex,274.72
+31,Puma Comfort Heel,botki,Puma,men,467.4
+32,Vans Soft Step,botki,Vans,kids,468.04
+33,Lasocki Winter Warm,kozaki,Lasocki,unisex,480.0
+34,Puma Snow Comfort,kozaki,Puma,unisex,344.45
+35,Nike Long Classic,kozaki,Nike,women,375.42
+36,Puma Frost Guard,kozaki,Puma,unisex,597.2
+37,Lasocki Nordic Walk,kozaki,Lasocki,unisex,596.94
+38,Ryłko Thermo Boot,kozaki,Ryłko,kids,784.54
+39,Nike Elegant Winter,kozaki,Nike,women,639.86
+40,Vans Warm Step,kozaki,Vans,kids,683.3
+41,Ecco Summer Light,sandały,Ecco,women,157.7
+42,Puma Beach Walk,sandały,Puma,unisex,99.65
+43,4F Comfort Strap,sandały,4F,kids,293.38
+44,Puma City Sandal,sandały,Puma,women,273.1
+45,New Balance Soft Summer,sandały,New Balance,men,129.57
+46,Puma Holiday Step,sandały,Puma,women,218.79
+47,Ryłko Open Air,sandały,Ryłko,women,121.37
+48,Ecco Sunny Walk,sandały,Ecco,kids,146.89
+49,Reebok Pool Easy,klapki,Reebok,women,60.13
+50,Ryłko Beach Basic,klapki,Ryłko,women,176.14
+51,Vans Home Comfort,klapki,Vans,men,65.69
+52,Ryłko Summer Slide,klapki,Ryłko,men,83.46
+53,Converse Aqua Walk,klapki,Converse,unisex,174.37
+54,Vans Relax Step,klapki,Vans,men,141.68
+55,Lasocki Soft Slide,klapki,Lasocki,kids,105.95
+56,Vans Daily Flip,klapki,Vans,unisex,64.73

@@ -42,6 +42,8 @@ python main.py --source generated
 
 Ten tryb zapisuje pliki CSV do `data/input/`, a następnie uruchamia dokładnie ten sam importer, którego używa tryb `csv`.
 
+Importer CSV nie wymusza konkretnego roku. Dane mogą obejmować 2025, inny rok albo zakres wielu lat, o ile `dim_date.csv` zawiera poprawne daty, a kolumny `day`, `month`, `quarter` i `year` są zgodne z kolumną `date`.
+
 ## Najczęstsze błędy walidacji
 
 - Brak wymaganego pliku CSV.

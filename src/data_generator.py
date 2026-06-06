@@ -39,7 +39,7 @@ MONTH_NAMES = {
 }
 
 
-def generate_sample_data(output_dir: Path, seed: int = 42) -> dict[str, pd.DataFrame]:
+def generate_sample_data(output_dir: Path, seed: int = 42, year: int = 2025) -> dict[str, pd.DataFrame]:
     rng = np.random.default_rng(seed)
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -47,7 +47,7 @@ def generate_sample_data(output_dir: Path, seed: int = 42) -> dict[str, pd.DataF
     stores = _generate_stores()
     products = _generate_products(rng)
     customers = _generate_customers(rng)
-    dates = _generate_dates()
+    dates = _generate_dates(year)
     sales = _generate_sales(rng, stores, products, customers, dates)
 
     data = {
@@ -121,20 +121,20 @@ def _generate_customers(rng: np.random.Generator, customer_count: int = 440) -> 
     return pd.DataFrame(rows)
 
 
-def _generate_dates() -> pd.DataFrame:
-    dates = pd.date_range("2025-01-01", "2025-12-31", freq="D")
+def _generate_dates(year: int = 2025) -> pd.DataFrame:
+    dates = pd.date_range(f"{year}-01-01", f"{year}-12-31", freq="D")
     rows = []
     for idx, date in enumerate(dates, start=1):
         month = int(date.month)
         rows.append(
             {
-                "date_id": idx,
+                "date_id": int(date.strftime("%Y%m%d")),
                 "date": date.strftime("%Y-%m-%d"),
                 "day": int(date.day),
                 "month": month,
                 "month_name": MONTH_NAMES[month],
                 "quarter": int((month - 1) // 3 + 1),
-                "year": 2025,
+                "year": int(date.year),
                 "season": _season(month),
             }
         )

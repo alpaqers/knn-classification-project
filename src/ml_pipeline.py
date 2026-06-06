@@ -32,8 +32,11 @@ def train_knn_model(performance: pd.DataFrame, reports_dir: Path) -> dict:
             "k": k,
             "accuracy": float(accuracy_score(y_test, predictions)),
             "precision": float(precision_score(y_test, predictions, average="macro", zero_division=0)),
+            "precision_macro": float(precision_score(y_test, predictions, average="macro", zero_division=0)),
             "recall": float(recall_score(y_test, predictions, average="macro", zero_division=0)),
+            "recall_macro": float(recall_score(y_test, predictions, average="macro", zero_division=0)),
             "f1_score": float(f1_score(y_test, predictions, average="macro", zero_division=0)),
+            "f1_macro": float(f1_score(y_test, predictions, average="macro", zero_division=0)),
         }
         results.append(metrics)
         if best is None or metrics["f1_score"] > best["metrics"]["f1_score"]:
@@ -42,16 +45,28 @@ def train_knn_model(performance: pd.DataFrame, reports_dir: Path) -> dict:
     labels = sorted(y.unique())
     report = classification_report(y_test, best["predictions"], labels=labels, zero_division=0)
     matrix = confusion_matrix(y_test, best["predictions"], labels=labels)
+    final_model = Pipeline(
+        [
+            ("scaler", StandardScaler()),
+            ("knn", KNeighborsClassifier(n_neighbors=best["metrics"]["k"])),
+        ]
+    )
+    final_model.fit(X, y)
+    all_predictions = final_model.predict(X)
     output = {
         "best_k": best["metrics"]["k"],
         "accuracy": best["metrics"]["accuracy"],
         "precision": best["metrics"]["precision"],
+        "precision_macro": best["metrics"]["precision_macro"],
         "recall": best["metrics"]["recall"],
+        "recall_macro": best["metrics"]["recall_macro"],
         "f1_score": best["metrics"]["f1_score"],
+        "f1_macro": best["metrics"]["f1_macro"],
         "k_results": results,
         "labels": labels,
         "confusion_matrix": matrix.tolist(),
         "classification_report": report,
+        "all_predictions": all_predictions.tolist(),
     }
     write_model_results(output, reports_dir)
     return output

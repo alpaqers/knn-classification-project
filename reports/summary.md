@@ -14,22 +14,24 @@ pytest
 
 - Pliki CSV: `data/input/`
 - Baza SQLite: `/home/user/projekty-studia/hurtownie-danych/knn-classification-project/data/output/shoe_stores_dw.sqlite`
+- Dane dashboardu: `output/store_monthly_performance.csv`, `output/store_summary.csv`, `output/knn_results.csv`, `output/model_metrics.json`
 - Wykresy: `/home/user/projekty-studia/hurtownie-danych/knn-classification-project/output/plots`
 - Raport techniczny: `reports/technical_report.md`
 - Wyniki modelu: `reports/model_results.md`
-- Testy automatyczne: przygotowano 16 testów pytest; podczas przygotowania projektu wynik wyniósł 16/16 passed.
+- Testy automatyczne: przygotowano 23 testy pytest; podczas przygotowania projektu wynik wyniósł 23/23 passed.
+- Dashboard Streamlit: `streamlit run app.py`
 
 ## Wyniki modelu kNN
 
-Najlepsze k: 9
+Najlepsze k: 7
 
-Accuracy: 0.7500
+Accuracy: 0.8276
 
-Precision macro: 0.7500
+Precision macro: 0.8382
 
-Recall macro: 0.7500
+Recall macro: 0.8272
 
-F1-score macro: 0.7500
+F1-score macro: 0.8261
 
 ## Decyzje projektowe
 

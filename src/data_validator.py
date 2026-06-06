@@ -79,12 +79,36 @@ def _validate_dates(dim_date: pd.DataFrame) -> None:
     parsed = pd.to_datetime(dim_date["date"], errors="coerce")
     if parsed.isna().any():
         raise ValidationError("dim_date.date contains invalid dates")
+
+    numeric_columns = ["day", "month", "quarter", "year"]
+    numeric = {}
+    for column in numeric_columns:
+        values = pd.to_numeric(dim_date[column], errors="coerce")
+        if values.isna().any():
+            raise ValidationError(f"dim_date.{column} contains invalid numeric values")
+        numeric[column] = values.astype(int)
+
+    if not numeric["day"].between(1, 31).all():
+        raise ValidationError("dim_date.day must be between 1 and 31")
+    if not numeric["month"].between(1, 12).all():
+        raise ValidationError("dim_date.month must be between 1 and 12")
+    if not numeric["quarter"].between(1, 4).all():
+        raise ValidationError("dim_date.quarter must be between 1 and 4")
+
     years = pd.to_numeric(dim_date["year"], errors="coerce")
-    if years.isna().any() or not (years == 2025).all():
-        raise ValidationError("dim_date must contain only year 2025")
-    months = set(pd.to_numeric(dim_date["month"], errors="coerce").dropna().astype(int))
-    if months != set(range(1, 13)):
-        raise ValidationError("dim_date must contain all 12 months of 2025")
+    if years.isna().any():
+        raise ValidationError("dim_date.year contains invalid numeric values")
+
+    if not (parsed.dt.day.to_numpy() == numeric["day"].to_numpy()).all():
+        raise ValidationError("dim_date.day must match dim_date.date")
+    if not (parsed.dt.month.to_numpy() == numeric["month"].to_numpy()).all():
+        raise ValidationError("dim_date.month must match dim_date.date")
+    if not (parsed.dt.year.to_numpy() == numeric["year"].to_numpy()).all():
+        raise ValidationError("dim_date.year must match dim_date.date")
+
+    expected_quarter = ((numeric["month"] - 1) // 3 + 1).astype(int)
+    if not (expected_quarter.to_numpy() == numeric["quarter"].to_numpy()).all():
+        raise ValidationError("dim_date.quarter must match dim_date.month")
 
 
 def _validate_foreign_keys(data: dict[str, pd.DataFrame]) -> None:

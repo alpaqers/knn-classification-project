@@ -113,10 +113,12 @@ pytest
 
 - Pliki CSV: `data/input/`
 - Baza SQLite: `{database_path}`
+- Dane dashboardu: `output/store_monthly_performance.csv`, `output/store_summary.csv`, `output/knn_results.csv`, `output/model_metrics.json`
 - Wykresy: `{plots_dir}`
 - Raport techniczny: `reports/technical_report.md`
 - Wyniki modelu: `reports/model_results.md`
-- Testy automatyczne: przygotowano 16 testów pytest; podczas przygotowania projektu wynik wyniósł 16/16 passed.
+- Testy automatyczne: przygotowano 23 testy pytest; podczas przygotowania projektu wynik wyniósł 23/23 passed.
+- Dashboard Streamlit: `streamlit run app.py`
 
 ## Wyniki modelu kNN
 
